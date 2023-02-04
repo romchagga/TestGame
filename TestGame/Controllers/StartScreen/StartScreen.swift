@@ -30,15 +30,22 @@ class StartScreen: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
             configViews()
+       
+        startButton.addTarget(self, action: #selector(startButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func startButtonTapped() {
+        navigationController?.pushViewController(SelectionNumber(), animated: true)
     }
 
     func configViews() {
+        view.backgroundColor = .white
         view.addSubview(startLabel)
         view.addSubview(startButton)
         setConstraints()
         
+        
     }
-
     
     func setConstraints() {
         NSLayoutConstraint.activate([
